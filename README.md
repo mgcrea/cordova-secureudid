@@ -1,9 +1,11 @@
-# Cordova Plugin Seed #
+# Cordova SecureDeviceIdentifier Seed #
 by [Olivier Louvignes](http://olouv.com)
 
 ## DESCRIPTION ##
 
-* This is a generic seed to build a post 2.1.0 Cordova ARC plugin.
+* This plugin provides a simple way to retreive a secureUDID to replace Apple deprecated UDID. This plugin is built for Cordova >= v2.1.0 with ARC.
+
+* It relies on [SecureUDID](https://github.com/crashlytics/secureudid) to work (MIT license, included in ./libs).
 
 ## PLUGIN SETUP FOR IOS ##
 
@@ -19,43 +21,27 @@ Using this plugin requires [Cordova iOS](https://github.com/apache/incubator-cor
 
 4. Add new entry with key `MyPlugin` and value `MyPlugin` to `Plugins` in `Cordova.plist/Cordova.plist`
 
-## PLUGIN SETUP FOR ANDROID ##
-
-Using this plugin requires [Cordova Android](https://github.com/apache/incubator-cordova-android).
-
-1. Make sure your Android project has been [updated for Cordova](https://github.com/apache/incubator-cordova-android/blob/master/guides/Cordova%20Upgrade%20Guide.md)
-2. Merge both the `libs` and `src` folder from this plugin to your projet.
-3. Add the .js files to your `assets/www` folder on disk, and add reference(s) to the .js files using `<script>` tags in your html file(s)
-
-
-    `<script type="text/javascript" src="/js/plugins/FacebookConnect.js"></script>`
-
-
-4. Add new entry with key `MyPlugin` and value `org.apache.cordova.plugins.MyPlugin` to `Plugins` in `res/xml/config.xml`
-
-
-    <plugin name="MyPlugin" value="org.apache.cordova.plugins.MyPlugin"/>
-
-
 ## JAVASCRIPT INTERFACE (IOS/ANDROID) ##
 
     // After device ready, create a local alias
-    var myPlugin = window.plugins.myPlugin;
+    var secureDeviceIdentifier = window.plugins.secureDeviceIdentifier;
 
-    // MyMethod
-    messageBox.myMethod('Title', 'Message', function() {
-        console.log("MyPlugin.myMethod:" + JSON.stringify(arguments));
-    });
+    secureDeviceIdentifier.get({
+        domain: 'com.example.myapp',
+        key: 'difficult-to-guess-key'
+    }, function(udid) {
+        navigator.notification.alert("SecureUDID=" + udid);
+    })
 
-* Check [source](https://github.com/mgcrea/cordova-plugin-seed/tree/master/www/MyPlugin.js) for additional configuration.
+* Check [source](https://github.com/mgcrea/cordova-secureudid/tree/master/www/SecureDeviceIdentifier.js) for additional configuration.
 
 ## BUGS AND CONTRIBUTIONS ##
 
 Patches welcome! Send a pull request. Since this is not a part of Cordova Core (which requires a CLA), this should be easier.
 
-Post issues on [Github](https://github.com/mgcrea/cordova-plugin-seed/issues)
+Post issues on [Github](https://github.com/mgcrea/cordova-secureudid/issues)
 
-The latest code (my fork) will always be [here](https://github.com/mgcrea/cordova-plugin-seed/tree/master)
+The latest code (my fork) will always be [here](https://github.com/mgcrea/cordova-secureudid/tree/master)
 
 ## LICENSE ##
 
@@ -85,5 +71,5 @@ The latest code (my fork) will always be [here](https://github.com/mgcrea/cordov
 
 Contributors :
 
-* [Olivier Louvignes](http://olouv.com)
+* [Olivier Louvignes](http://olouv.com), author.
 
