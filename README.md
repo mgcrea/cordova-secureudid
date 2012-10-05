@@ -1,11 +1,11 @@
-# Cordova SecureDeviceIdentifier Seed #
+# Cordova SecureDeviceIdentifier #
 by [Olivier Louvignes](http://olouv.com)
 
 ## DESCRIPTION ##
 
 * This plugin provides a simple way to retreive a secureUDID to replace Apple deprecated UDID. This plugin is built for Cordova >= v2.1.0 with ARC.
 
-* It relies on [SecureUDID](https://github.com/crashlytics/secureudid) to work (MIT license, included in ./libs).
+* It relies on [SecureUDID](https://github.com/mgcrea/secureudid) to work (MIT license, included in ./libs).
 
 ## PLUGIN SETUP FOR IOS ##
 

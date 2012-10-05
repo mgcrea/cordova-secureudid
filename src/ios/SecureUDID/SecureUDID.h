@@ -54,7 +54,7 @@
  #import "SecureUDID.h"
 
  [SecureUDID retrieveUDIDForDomain:@"com.example.myapp" usingKey:@"difficult-to-guess-key" completion:^(NSString *identifier) {
-    // make use of identifier here
+ // make use of identifier here
  }];
 
  */
@@ -64,7 +64,7 @@
 
 /*
  Indicates that the system has been disabled via the Opt-Out mechansim.
-*/
+ */
 + (BOOL)isOptedOut;
 
 @end
