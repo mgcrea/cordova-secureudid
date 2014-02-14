@@ -23,8 +23,10 @@
 		
 
 		<header-file src="src/ios/SecureDeviceIdentifier.h" />
-
 		<source-file src="src/ios/SecureDeviceIdentifier.m" />
+		
+		<header-file src="src/ios/SecureUDID/SecureUDID.h" />
+		<source-file src="src/ios/SecureUDID/SecureUDID.m" />
 	</platform>
 
 </plugin>
