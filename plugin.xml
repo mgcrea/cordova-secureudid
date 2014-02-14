@@ -6,7 +6,11 @@
 
 	<name>SecureDeviceIdentifier</name>
 
-	<asset src="www/SecureDeviceIdentifier.js" target="SecureDeviceIdentifier.js" />
+	
+	
+	 <js-module src="www/SecureDeviceIdentifier.js" name="SecureDeviceIdentifier">
+        	<clobbers target="SecureDeviceIdentifier" />
+	 </js-module>
 
 	<!-- android -->
 	<platform name="android">
@@ -36,11 +40,16 @@
 
 	<!-- ios -->
 	<platform name="ios">
-		<plugins-plist key="SecureDeviceIdentifier" />
+		 <config-file target="config.xml" parent="/*">
+	             <feature name="SecureDeviceIdentifier">
+	                 <param name="ios-package" value="SecureDeviceIdentifier" />
+	             </feature>
+	         </config-file>
+		
 
-		<header-file src="SecureDeviceIdentifier.h" />
+		<header-file src="src/ios/SecureDeviceIdentifier.h" />
 
-		<source-file src="SecureDeviceIdentifier.m" />
+		<source-file src="src/ios/SecureDeviceIdentifier.m" />
 	</platform>
 
 </plugin>
